@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3d1ec1f2-57fd-4ce6-b06d-771529e2c354" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/users/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/users/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/users/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/houses/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/houses/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houses/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houses/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houses/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houses/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houses/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/houses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/public/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/views.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1a2rT8KEx7JQRcmvCcpbiE3nYGD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/users" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/api" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3d1ec1f2-57fd-4ce6-b06d-771529e2c354" name="Default Changelist" comment="" />
+      <created>1585944534673</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585944534673</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
