@@ -1,5 +1,5 @@
 from django.db import models
-from HappyM8.houses.models import House
+from api.houses.models import House
 # Create your models here.
 
 
