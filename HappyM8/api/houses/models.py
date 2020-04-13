@@ -5,7 +5,7 @@ from django.db import models
 class House(models.Model):
     address = models.CharField(max_length=200)
     max_nr_tenants = models.IntegerField()
-    rules = models.CharField(max_length=800)
+    rules = models.TextField(max_length=800)
     # tenants = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
 
 

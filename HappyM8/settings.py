@@ -86,9 +86,8 @@ DATABASES = {
         'PASSWORD': 'proep2020',
         'HOST': 'studmysql01.fhict.local',
         'PORT': '',
-        'OPTIONS':{
-            'timeout': 99999999,
-            'net_read_timeout': 9999999
+        'OPTIONS': {
+            'connect_timeout': 99999999,
         },
     }
 }
