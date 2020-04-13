@@ -3,10 +3,12 @@ from api.houses.models import House
 
 
 class HouseSerializer(serializers.ModelSerializer):
-    model = House
-    fields = ('address', 'max_nr_tenants', 'rules', 'tenants')
+    class Meta:
+        model = House
+        fields = ('address', 'max_nr_tenants', 'rules')
 
 
 class RoomSerializers(serializers.ModelSerializer):
-    model = House
-    fields = ('room_type', 'is_bookable', 'house_id')
+    class Meta:
+        model = House
+        fields = ('room_type', 'is_bookable', 'house_id')

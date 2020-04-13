@@ -39,12 +39,6 @@ class HouseList(ModelViewSet):
         """
         return super().retrieve(request, *args, **kwargs)
 
-    @action(detail='true', methods=['get'], url_path='houses')
-    def get(self, format=None):
-        houses = House.objects.all
-        serializer = HouseSerializer(houses)
-        return Response(serializer.data)
-
     @action(detail='true', methods=['[post]'], url_path='houses')
     def post(self, request, format=None):
         serializer = HouseSerializer(data=request.data)
