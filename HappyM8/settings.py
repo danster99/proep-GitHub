@@ -78,13 +78,21 @@ WSGI_APPLICATION = 'HappyM8.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+<<<<<<< HEAD
         'NAME': 'dbi378622',
         'USER': 'dbi378622',
         'PASSWORD': 'proep2020',
         'HOST': 'studmysql01.fhict.local',
         'PORT': ''
+=======
+        'HOST': '127.0.0.1',
+        'NAME': 'test',
+        'USER': 'root',
+        'PASSWORD': ''
+>>>>>>> da2ef8ac045f353689f4447fd429bd4c0f94b561
     }
 }
 
