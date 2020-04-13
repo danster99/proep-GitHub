@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('address', models.CharField(max_length=400)),
                 ('max_nr_tenants', models.IntegerField()),
-                ('rules', models.CharField(max_length=50000)),
+                ('rules', models.CharField(max_length=500)),
             ],
         ),
         migrations.CreateModel(
