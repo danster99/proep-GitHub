@@ -31,12 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'api',
+    'api.houses',
+    'api.users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -75,8 +79,12 @@ WSGI_APPLICATION = 'HappyM8.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dbi378622',
+        'USER': 'dbi378622',
+        'PASSWORD': 'proep2020',
+        'HOST': 'studmysql01.fhict.local',
+        'PORT': ''
     }
 }
 

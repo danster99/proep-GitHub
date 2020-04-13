@@ -9,20 +9,20 @@ STATUS_UNASSIGNED = 3
 
 
 class User(models.Model):
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
-    email = models.EmailField(max_length=300)
-    password = models.CharField(max_length=200)
-    company = models.CharField(max_length=200, null=True, blank=True)
-    nationality = models.CharField()
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=70)
+    password = models.CharField(max_length=20)
+    company = models.CharField(max_length=50, null=True, blank=True)
+    nationality = models.CharField(max_length=20, null=True, blank=True)
     phone_nr = models.CharField(max_length=11, null=True, blank=True)
-    code = models.CharField(null=True, blank=True)
-    status_choices = {
-        'pending': STATUS_PENDING,
-        'assigned': STATUS_ASSIGNED,
-        'unassigned': STATUS_UNASSIGNED
-    }
-    status = models.CharField(choices=status_choices)
+    code = models.CharField(max_length=50, null=True, blank=True)
+    status_choices = [
+        (STATUS_PENDING, 'pending'),
+        (STATUS_ASSIGNED, 'assigned'),
+        (STATUS_UNASSIGNED, 'unassigned')
+    ]
+    status = models.CharField(max_length=15, choices=status_choices)
     is_admin = models.BooleanField(default=False)
 
     # Foreign key

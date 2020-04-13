@@ -1,6 +1,5 @@
-from django.db.models import Prefetch
 from rest_framework import serializers
-from api.users.models import User
+from api.users import User
 
 
 class UserSerializer(serializers.ModelSerializer):

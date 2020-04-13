@@ -5,9 +5,30 @@
       <change beforePath="$PROJECT_DIR$/.idea/HappyM8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HappyM8.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/houses/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../requirements_proep.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements_proep.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/houses/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/houses/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/houses/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/houses/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/houses/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/houses/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/houses/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,10 +58,24 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/users" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/api" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/api/users" />
+      <recent name="$PROJECT_DIR$/api/houses" />
+      <recent name="$PROJECT_DIR$/public/users" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
