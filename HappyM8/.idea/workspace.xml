@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d1ec1f2-57fd-4ce6-b06d-771529e2c354" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/HappyM8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HappyM8.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/houses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,18 +40,6 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/api" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
