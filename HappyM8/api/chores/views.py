@@ -1,16 +1,16 @@
 from rest_framework import status
-from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet
 
-from api.users.models import User
-from api.users.serializers import UserSerializer
+from api.bookings.models import Booking
+from api.bookings.serializers import BookingSerializer
 
 
-class UsersList(ModelViewSet):
+class HouseList(ModelViewSet):
 
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
 
     def list(self, request, *args, **kwargs):
         """
@@ -36,7 +36,7 @@ class UsersList(ModelViewSet):
 
     @action(detail='true', methods=['[post]'], url_path='houses')
     def post(self, request, format=None):
-        serializer = UserSerializer(data=request.data)
+        serializer = BookingSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

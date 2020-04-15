@@ -2,9 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d1ec1f2-57fd-4ce6-b06d-771529e2c354" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api/bookings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/bookings/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/bookings/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/bookings/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/bookings/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/bookings/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/bookings/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/chores/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/chores/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/chores/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/chores/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/chores/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/chores/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/chores/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/events/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/utilities/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0002_auto_20200409_2219.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0003_auto_20200413_1538.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0004_auto_20200413_1543.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0005_remove_house_rules.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0006_house_rules.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0002_auto_20200409_2219.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../requirements_proep.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements_proep.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,16 +52,21 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/chores" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\chores" />
+      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\bookings\migrations" />
+      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\bookings" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\bookings" />
       <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api" />
       <recent name="$PROJECT_DIR$/public/users" />
       <recent name="$PROJECT_DIR$" />
@@ -59,30 +91,43 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="739" y="274" key="FileChooserDialogImpl" timestamp="1586781399488">
+    <state x="739" y="274" key="FileChooserDialogImpl" timestamp="1586963721662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586781399488" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1586781405841">
+    <state x="739" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586963721662" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1586962666993">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586781405841" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586449925976">
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586962666993" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586950546279">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586449925976" />
-    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1586781957442">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586950546279" />
+    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1586963744340">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586781957442" />
+    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586963744340" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586962629234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586962629234" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/api/houses/serializers.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
