@@ -40,8 +40,8 @@ class User(models.Model):
     is_admin = models.BooleanField(default=False)
 
     # Foreign key
-    house_tenant = models.ForeignKey(House, on_delete=models.CASCADE, default=0, blank=True, null=True)
-    house_owner = models.OneToOneField(House, on_delete=models.CASCADE, null=True, blank=True)
+    house_tenant = models.ForeignKey(House, on_delete=models.CASCADE, blank=True, null=True, related_name='tenant')
+    house_owner = models.OneToOneField(House, on_delete=models.CASCADE, null=True, blank=True, related_name='owner')
 
     @property
     def is_pending(self):
