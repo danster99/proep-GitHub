@@ -2,7 +2,7 @@ from django.db import models
 # Create your models here.
 from api.houses.models import Room
 from api.users.models import User
-#from api.utilities.models import Utility
+#from api.chores.models import Utility
 
 
 class Booking(models.Model):
