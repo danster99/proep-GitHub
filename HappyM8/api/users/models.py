@@ -9,6 +9,20 @@ STATUS_UNASSIGNED = 3
 
 
 class User(models.Model):
+    """
+    A user can be of three types:
+    1. admin - can create a house
+    2.tenant - can access facilities, bookings and chores of an assigned house
+    3."basic" user - can be assigned to a house
+
+    A user has three types of status:
+    1. pending - the user has not yet created an account to be assigned to a house
+    2.assigned - a user is part of a house
+    3.unassigned - a user who is not yet part of any house
+
+    when a user creates an account, their status is unassigned by default unless they've been
+    added by an owner. In this case, the status is pending/
+    """
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=70)
@@ -26,7 +40,8 @@ class User(models.Model):
     is_admin = models.BooleanField(default=False)
 
     # Foreign key
-    house_id = models.ForeignKey(House, on_delete=models.CASCADE, default=0)
+    house_tenant = models.ForeignKey(House, on_delete=models.CASCADE, default=0, blank=True, null=True)
+    house_owner = models.OneToOneField(House, on_delete=models.CASCADE, null=True, blank=True)
 
     @property
     def is_pending(self):

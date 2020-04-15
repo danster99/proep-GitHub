@@ -1,3 +1,4 @@
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -7,10 +8,7 @@ from api.users.models import User
 from api.users.serializers import UserSerializer
 
 
-class UsersList(ModelViewSet):
-
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class UserList(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """
@@ -34,10 +32,14 @@ class UsersList(ModelViewSet):
         """
         return super().retrieve(request, *args, **kwargs)
 
-    @action(detail='true', methods=['[post]'], url_path='houses')
-    def post(self, request, format=None):
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # def get(self, format=None):
+    #     houses = User.objects.all
+    #     serializer = UserSerializer(houses)
+    #     return Response(serializer.data)
+    #
+    # def post(self, request, format=None):
+    #     serializer = UserSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
