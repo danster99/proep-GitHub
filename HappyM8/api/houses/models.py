@@ -1,12 +1,12 @@
 from django.db import models
 # Create your models here.
+from api.users.models import User
 
 
 class House(models.Model):
     address = models.CharField(max_length=200)
     max_nr_tenants = models.IntegerField()
     rules = models.TextField(max_length=200)
-    # tenants = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
 
 
 class Room(models.Model):
