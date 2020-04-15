@@ -2,38 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d1ec1f2-57fd-4ce6-b06d-771529e2c354" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/bookings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/bookings/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/bookings/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/bookings/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/bookings/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/bookings/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/bookings/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/chores/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/chores/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/chores/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/chores/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/chores/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/chores/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/chores/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/events/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/utilities/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HappyM8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HappyM8.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0002_auto_20200409_2219.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0003_auto_20200413_1538.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0004_auto_20200413_1543.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0005_remove_house_rules.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0006_house_rules.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/users/migrations/0002_auto_20200409_2219.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/bookings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/bookings/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../requirements_proep.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements_proep.txt" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,17 +40,17 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\chores" />
-      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\bookings\migrations" />
-      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\bookings" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\bookings" />
       <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api" />
       <recent name="$PROJECT_DIR$/public/users" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/api" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\chores" />
+      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\bookings\migrations" />
+      <recent name="C:\Users\danan\Desktop\uni\PROEP\proep\HappyM8\api\bookings" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -116,19 +95,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586963744340" />
+    <state x="746" y="308" key="git4idea.merge.GitMergeDialog" timestamp="1586971482108">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="746" y="308" key="git4idea.merge.GitMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586971482108" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586962629234">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586962629234" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/api/houses/serializers.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

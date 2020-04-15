@@ -7,7 +7,7 @@ from api.bookings.models import Booking
 from api.bookings.serializers import BookingSerializer
 
 
-class HouseList(ModelViewSet):
+class BookingList(ModelViewSet):
 
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer

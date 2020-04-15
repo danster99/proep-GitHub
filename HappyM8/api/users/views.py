@@ -1,14 +1,12 @@
-from django.http import HttpRequest, HttpResponse, JsonResponse
-from rest_framework import status
-from rest_framework.decorators import action
-from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-
 from api.users.models import User
 from api.users.serializers import UserSerializer
 
 
 class UserList(ModelViewSet):
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
     def list(self, request, *args, **kwargs):
         """

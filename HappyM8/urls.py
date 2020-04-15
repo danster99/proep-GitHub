@@ -19,13 +19,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-
 from api.houses.views import HouseList
-from api.users.views import UsersList
+from api.bookings.views import BookingList
+from api.users.views import UserList
 
 endpoints = [
     (r'houses', HouseList),
-    (r'users', UsersList),
+    (r'users', UserList),
+    (r'bookings', BookingList),
 ]
 
 router = routers.DefaultRouter()
@@ -34,7 +35,6 @@ for prefix, viewset in endpoints:
     router.register(prefix=prefix, viewset=viewset)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url('admin/', admin.site.urls),
     url(r'api/', include(router.urls)),
-
 ]
