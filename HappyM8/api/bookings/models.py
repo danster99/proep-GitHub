@@ -6,10 +6,10 @@ from api.users.models import User
 
 
 class Booking(models.Model):
-    userId = models.ForeignKey(User, on_delete=models.CASCADE)
-    roomId = models.ForeignKey(Room, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
     #utilityId = models.ForeignKey(Utility, on_delete = models.CASCADE)
     description = models.TextField(max_length=500)
-    beginTime = models.DateTimeField()
-    endTime = models.DateTimeField()
+    begin_time = models.DateTimeField()
+    end_time = models.DateTimeField()
 

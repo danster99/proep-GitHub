@@ -6,8 +6,8 @@ from api.users.views import User
 
 
 class Chore(models.Model):
-    userId = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.TextField(max_length=50)
     description = models.TextField(max_length=500)
-    beginTime = models.DateTimeField()
-    endTime = models.DateTimeField()
+    begin_time = models.DateTimeField()
+    end_time = models.DateTimeField()

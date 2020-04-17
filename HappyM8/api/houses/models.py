@@ -11,4 +11,4 @@ class House(models.Model):
 class Room(models.Model):
     room_type = models.CharField(max_length=50)
     is_bookable = models.BooleanField(default=True)
-    house_id = models.ForeignKey(House, on_delete=models.CASCADE)
+    house = models.ForeignKey(House, on_delete=models.CASCADE)

@@ -14,8 +14,7 @@ class BookingList(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """
-        Retrieve existing clients. It is possible to filter clients by email.
-        ex: ?email='some-client@mail.com'
+        Retrieve existing bookings
         :param request:
         :param args:
         :param kwargs:
@@ -23,21 +22,12 @@ class BookingList(ModelViewSet):
         """
         return super().list(request, *args, **kwargs)
 
-    def retrieve(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
         """
-        Retrieve existing clients. It is possible to filter clients by email.
-        ex: ?email='some-client@mail.com'
+        Create a new booking
         :param request:
         :param args:
         :param kwargs:
         :return:
         """
-        return super().retrieve(request, *args, **kwargs)
-
-    @action(detail='true', methods=['[post]'], url_path='houses')
-    def post(self, request, format=None):
-        serializer = BookingSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return super().create(request, *args, **kwargs)

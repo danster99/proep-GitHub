@@ -6,9 +6,10 @@ from api.users.models import User
 
 
 class CustomEvent(models.Model):
-    userId = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.TextField(max_length=50)
     description = models.TextField(max_length=500)
-    beginTime = models.DateTimeField()
-    endTime = models.DateTimeField()
-    notifyAdmin = models.BooleanField(default=False)
+    begin_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    notify_admin = models.BooleanField(default=False)

@@ -4,16 +4,16 @@ from api.users.serializers import UserSerializer
 
 
 class RoomSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Room
-        fields = ('room_type', 'is_bookable')
+        fields = ('room_type', 'is_bookable', 'house')
 
 
 class HouseSerializer(serializers.ModelSerializer):
 
     room_set = RoomSerializer(many=True, read_only=True)
     tenant = UserSerializer(many=True, read_only=True)
-    owner = serializers.ReadOnlyField()
 
     class Meta:
         model = House

@@ -34,10 +34,12 @@ class CustomEventList(ModelViewSet):
         """
         return super().retrieve(request, *args, **kwargs)
 
-    @action(detail='true', methods=['[post]'], url_path='houses')
-    def post(self, request, format=None):
-        serializer = CustomEventSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def create(self, request, *args, **kwargs):
+        """
+        Create a new custom event
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        return super().create(request, *args, **kwargs)

@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-from api.houses.models import House
+from api.houses.models import House, Room
 from api.houses.serializers import HouseSerializer
 from rest_framework import permissions
 
@@ -20,7 +20,7 @@ class HouseList(ModelViewSet):
         .prefetch_related('room_set', 'tenant')\
         .all()
     serializer_class = HouseSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     # don't really meed this in the context, kept for testing only
     def list(self, request, *args, **kwargs):
@@ -81,4 +81,27 @@ class HouseList(ModelViewSet):
         serializer = self.serializer_class(house)
         return JsonResponse(serializer.data)
 
+    class RoomList(ModelViewSet):
 
+        queryset = Room.objects.all()
+        serializer_class = HouseSerializer
+
+        def create(self, request, *args, **kwargs):
+            """
+            Create a new room
+            :param request:
+            :param args:
+            :param kwargs:
+            :return:
+            """
+            return super().create(request, *args, **kwargs)
+
+        def retrieve(self, request, *args, **kwargs):
+            """
+            Get a specific room
+            :param request:
+            :param args:
+            :param kwargs:
+            :return:
+            """
+            return super().retrieve(request, *args, **kwargs)

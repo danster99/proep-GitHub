@@ -23,21 +23,13 @@ class UtilityList(ModelViewSet):
         """
         return super().list(request, *args, **kwargs)
 
-    def retrieve(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
         """
-        Retrieve existing clients. It is possible to filter clients by email.
-        ex: ?email='some-client@mail.com'
+        Create e new utility
         :param request:
         :param args:
         :param kwargs:
         :return:
         """
-        return super().retrieve(request, *args, **kwargs)
+        return super().create(request, *args ,**kwargs)
 
-    @action(detail='true', methods=['[post]'], url_path='houses')
-    def post(self, request, format=None):
-        serializer = UtilitySerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
