@@ -22,11 +22,17 @@ from rest_framework import routers
 from api.houses.views import HouseList
 from api.bookings.views import BookingList
 from api.users.views import UserList
+from api.utilities.views import UtilityList
+from api.chores.views import ChoreList
+from api.custom_events.views import CustomEventList
 
 endpoints = [
     (r'houses', HouseList),
     (r'users', UserList),
     (r'bookings', BookingList),
+    (r'utilities', UtilityList),
+    (r'chores', ChoreList),
+    (r'customEvents',CustomEventList)
 ]
 
 router = routers.DefaultRouter()

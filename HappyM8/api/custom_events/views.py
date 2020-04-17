@@ -3,14 +3,14 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet
 
-from api.chores.models import Chore
-from api.chores.serializers import ChoreSerializer
+from api.custom_events.models import CustomEvent
+from api.custom_events.serializers import CustomEventSerializer
 
 
-class ChoreList(ModelViewSet):
+class CustomEventList(ModelViewSet):
 
-    queryset = Chore.objects.all()
-    serializer_class = ChoreSerializer
+    queryset = CustomEvent.objects.all()
+    serializer_class = CustomEventSerializer
 
     def list(self, request, *args, **kwargs):
         """
@@ -36,7 +36,7 @@ class ChoreList(ModelViewSet):
 
     @action(detail='true', methods=['[post]'], url_path='houses')
     def post(self, request, format=None):
-        serializer = ChoreSerializer(data=request.data)
+        serializer = CustomEventSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
