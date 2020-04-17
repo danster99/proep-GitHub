@@ -1,22 +1,28 @@
+from typing import Dict
+
 from django.shortcuts import render
 
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
 from api.houses.models import House
 from api.houses.serializers import HouseSerializer
+from rest_framework import permissions
 
 
 class HouseList(ModelViewSet):
 
-    queryset = House.objects.\
-        prefetch_related('house_tenant_set').\
-        select_related('house_owner').all()
+    queryset = House.objects\
+        .select_related('owner')\
+        .prefetch_related('room_set', 'tenant')\
+        .all()
     serializer_class = HouseSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
+    # don't really meed this in the context, kept for testing only
     def list(self, request, *args, **kwargs):
         """
         Retrieve existing houses.
@@ -26,6 +32,16 @@ class HouseList(ModelViewSet):
         :return:
         """
         return super().list(request, *args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        """
+        Create house
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        return super().create(request, *args, *kwargs)
 
     def retrieve(self, request, *args, **kwargs):
         """
@@ -37,7 +53,7 @@ class HouseList(ModelViewSet):
         """
         return super().retrieve(request, *args, **kwargs)
 
-    @action(detail=True, methods=['get'], url_path='tenants')
+    @action(detail=True, methods=['get'])
     def get_tenants(self, request: HttpRequest,
                      pk: int = None) -> HttpResponse:
         """
@@ -51,10 +67,18 @@ class HouseList(ModelViewSet):
         serializer = self.serializer_class(house)
         return JsonResponse(serializer.data)
 
-    # @action(detail='true', methods=['[post]'], url_path='houses')
-    # def post(self, request, format=None):
-    #     serializer = HouseSerializer(data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    @action(detail=True, methods=['get'])
+    def get_rooms(self, request: HttpRequest,
+                    pk: int = None) -> HttpResponse:
+        """
+        Retrieve one house by house id and all related rooms
+
+        :param request:
+        :param pk:
+        :return:
+        """
+        house = House.objects.get(id=pk)
+        serializer = self.serializer_class(house)
+        return JsonResponse(serializer.data)
+
+

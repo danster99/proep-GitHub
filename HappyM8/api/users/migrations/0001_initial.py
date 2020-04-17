@@ -26,8 +26,6 @@ class Migration(migrations.Migration):
                 ('phone_nr', models.CharField(blank=True, max_length=11, null=True)),
                 ('code', models.CharField(blank=True, max_length=50, null=True)),
                 ('status', models.CharField(choices=[(1, 'pending'), (2, 'assigned'), (3, 'unassigned')], max_length=15)),
-                ('is_admin', models.BooleanField(default=False)),
-                ('house_id', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='houses.House')),
             ],
         ),
     ]

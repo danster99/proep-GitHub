@@ -1,6 +1,7 @@
 from django.db import models
 from api.houses.models import House
 # Create your models here.
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 
 
 STATUS_PENDING = 1
@@ -8,7 +9,7 @@ STATUS_ASSIGNED = 2
 STATUS_UNASSIGNED = 3
 
 
-class User(models.Model):
+class User(AbstractBaseUser):
     """
     A user can be of three types:
     1. admin - can create a house
@@ -29,7 +30,7 @@ class User(models.Model):
     password = models.CharField(max_length=20)
     company = models.CharField(max_length=50, null=True, blank=True)
     nationality = models.CharField(max_length=20, null=True, blank=True)
-    phone_nr = models.CharField(max_length=11, null=True, blank=True)
+    phone_nr = models.CharField(max_length=30, null=True, blank=True)
     code = models.CharField(max_length=50, null=True, blank=True)
     status_choices = [
         (STATUS_PENDING, 'pending'),
@@ -39,6 +40,7 @@ class User(models.Model):
     status = models.CharField(max_length=15, choices=status_choices)
     is_admin = models.BooleanField(default=False)
 
+    USERNAME_FIELD = 'email'
     # Foreign key
     house_tenant = models.ForeignKey(House, on_delete=models.CASCADE, blank=True, null=True, related_name='tenant')
     house_owner = models.OneToOneField(House, on_delete=models.CASCADE, null=True, blank=True, related_name='owner')
