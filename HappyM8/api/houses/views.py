@@ -1,37 +1,20 @@
-from typing import Dict
 
-from django.shortcuts import render
-
-from django.http import HttpRequest, HttpResponse, JsonResponse
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.decorators import action
-from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
+from rest_framework.viewsets import ModelViewSet
 
 from api.houses.models import House, Room
 from api.houses.serializers import HouseSerializer
 from rest_framework import permissions
+from api.houses.filters import IsOwnerFilter
 
 
 class HouseList(ModelViewSet):
 
     queryset = House.objects\
-        .select_related('owner')\
         .prefetch_related('room_set', 'tenant')\
         .all()
     serializer_class = HouseSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-    # don't really meed this in the context, kept for testing only
-    def list(self, request, *args, **kwargs):
-        """
-        Retrieve existing houses.
-        :param request:
-        :param args:
-        :param kwargs:
-        :return:
-        """
-        return super().list(request, *args, **kwargs)
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = IsOwnerFilter
 
     def create(self, request, *args, **kwargs):
         """
@@ -53,38 +36,14 @@ class HouseList(ModelViewSet):
         """
         return super().retrieve(request, *args, **kwargs)
 
-    @action(detail=True, methods=['get'])
-    def get_tenants(self, request: HttpRequest,
-                     pk: int = None) -> HttpResponse:
-        """
-        Retrieve one house by house id and all related tenants
-
-        :param request:
-        :param pk:
-        :return:
-        """
-        house = House.objects.get(id=pk)
-        serializer = self.serializer_class(house)
-        return JsonResponse(serializer.data)
-
-    @action(detail=True, methods=['get'])
-    def get_rooms(self, request: HttpRequest,
-                    pk: int = None) -> HttpResponse:
-        """
-        Retrieve one house by house id and all related rooms
-
-        :param request:
-        :param pk:
-        :return:
-        """
-        house = House.objects.get(id=pk)
-        serializer = self.serializer_class(house)
-        return JsonResponse(serializer.data)
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
     class RoomList(ModelViewSet):
 
         queryset = Room.objects.all()
         serializer_class = HouseSerializer
+        permission_classes = [permissions.IsAuthenticated]
 
         def create(self, request, *args, **kwargs):
             """

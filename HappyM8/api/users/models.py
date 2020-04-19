@@ -1,7 +1,7 @@
 from django.db import models
 from api.houses.models import House
 # Create your models here.
-from django.contrib.auth.models import AbstractUser, AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser
 
 
 STATUS_PENDING = 1
@@ -26,10 +26,9 @@ class User(AbstractBaseUser):
     """
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=70)
+    email = models.EmailField(max_length=70, unique=True)
     password = models.CharField(max_length=20)
     company = models.CharField(max_length=50, null=True, blank=True)
-    nationality = models.CharField(max_length=20, null=True, blank=True)
     phone_nr = models.CharField(max_length=30, null=True, blank=True)
     code = models.CharField(max_length=50, null=True, blank=True)
     status_choices = [
@@ -39,11 +38,10 @@ class User(AbstractBaseUser):
     ]
     status = models.CharField(max_length=15, choices=status_choices)
     is_admin = models.BooleanField(default=False)
-
+    username = models.CharField(max_length=20, null=True, blank=True)
     USERNAME_FIELD = 'email'
     # Foreign key
     house_tenant = models.ForeignKey(House, on_delete=models.CASCADE, blank=True, null=True, related_name='tenant')
-    house_owner = models.OneToOneField(House, on_delete=models.CASCADE, null=True, blank=True, related_name='owner')
 
     @property
     def is_pending(self):
@@ -57,7 +55,3 @@ class User(AbstractBaseUser):
     def is_unassigned(self):
         return self.status == STATUS_UNASSIGNED
 
-    @classmethod
-    def email_used(cls, email):
-        filters = {'email': email.lower()}
-        return cls.objects.filter(**filters).count() > 0

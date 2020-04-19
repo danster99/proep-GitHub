@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.bookings.models import Booking
+from api.chores.models import Chore
 from api.users.serializers import UserSerializer
 
 
@@ -11,5 +11,5 @@ class ChoreSerializer(serializers.ModelSerializer):
     end_time = serializers.ReadOnlyField()
 
     class Meta:
-        model = Booking
+        model = Chore
         fields = ('user', 'name', 'description', 'begin_time', 'end_time')

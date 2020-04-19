@@ -6,6 +6,5 @@ from api.houses.models import House
 
 
 class Utility(models.Model):
-    houseId = models.ForeignKey(House, on_delete=models.CASCADE)
+    house = models.ForeignKey(House, on_delete=models.CASCADE)
     name = models.TextField(max_length=50)
-    isBookable = models.BooleanField(default=False)

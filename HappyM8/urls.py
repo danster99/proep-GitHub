@@ -32,7 +32,7 @@ endpoints = [
     (r'bookings', BookingList),
     (r'utilities', UtilityList),
     (r'chores', ChoreList),
-    (r'customEvents',CustomEventList)
+    (r'customEvents', CustomEventList)
 ]
 
 router = routers.DefaultRouter()
@@ -43,4 +43,6 @@ for prefix, viewset in endpoints:
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'api/', include(router.urls)),
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls'))
 ]
