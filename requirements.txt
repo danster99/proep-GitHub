@@ -10,3 +10,5 @@ virtualenv==16.7.5
 wheel==0.33.6
 faker==4.0.2
 mysqlclient
+Django-rest-auth
+Django-rest-auth[with_social]
