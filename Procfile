@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn HappyM8.wsgi
