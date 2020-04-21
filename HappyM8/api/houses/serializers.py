@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from api.houses.models import House, Room
-from api.users.serializers import UserSerializer
+from api.users.serializers import TenantSerializer
+from api.utilities.serializers import UtilitySerializer
 
 
 class RoomSerializer(serializers.ModelSerializer):
@@ -12,10 +13,11 @@ class RoomSerializer(serializers.ModelSerializer):
 
 class HouseSerializer(serializers.ModelSerializer):
 
-    room_set = RoomSerializer(many=True, read_only=True)
-    tenant = UserSerializer(many=True, read_only=True)
+    room_set = RoomSerializer(many=True)
+    tenant_set = TenantSerializer(many=True, read_only=True)
+    utility_set = UtilitySerializer(many=True)
 
     class Meta:
         model = House
         fields = ('address',  'max_nr_tenants', 'rules',
-                  'owner', 'room_set', 'tenant')
+                  'owner', 'room_set', 'tenant_set', 'utility_set')

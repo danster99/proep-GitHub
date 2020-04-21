@@ -19,9 +19,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from api.houses.views import HouseList
+from api.houses.views import HouseList, RoomList
 from api.bookings.views import BookingList
-from api.users.views import UserList
+from api.users.views import UserList, TenantList
 from api.utilities.views import UtilityList
 from api.chores.views import ChoreList
 from api.custom_events.views import CustomEventList
@@ -32,7 +32,9 @@ endpoints = [
     (r'bookings', BookingList),
     (r'utilities', UtilityList),
     (r'chores', ChoreList),
-    (r'customEvents',CustomEventList)
+    (r'customEvents', CustomEventList),
+    (r'tenants', TenantList),
+    (r'rooms', RoomList)
 ]
 
 router = routers.DefaultRouter()
@@ -43,4 +45,6 @@ for prefix, viewset in endpoints:
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'api/', include(router.urls)),
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls'))
 ]

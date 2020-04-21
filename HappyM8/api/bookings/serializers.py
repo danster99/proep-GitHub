@@ -6,11 +6,7 @@ from api.houses.serializers import RoomSerializer
 
 
 class BookingSerializer(serializers.ModelSerializer):
-
-    user = UserSerializer()
-    room = RoomSerializer()
-
     class Meta:
         model = Booking
-        fields = ('user', 'room',
+        fields = ('user', 'room',   
                   'description', 'begin_time', 'end_time')

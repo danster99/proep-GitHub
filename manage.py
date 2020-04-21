@@ -6,6 +6,7 @@ import sys
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HappyM8.settings')
+    sys.path.append('./HappyM8')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
