@@ -5,6 +5,37 @@
       <change beforePath="$PROJECT_DIR$/.idea/HappyM8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HappyM8.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/bookings/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/bookings/migrations/0002_auto_20200417_1525.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/bookings/migrations/0002_auto_20200421_2136.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/bookings/migrations/0003_booking_utility.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/bookings/migrations/0004_auto_20200417_1601.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/chores/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/chores/migrations/0002_auto_20200417_1525.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/chores/migrations/0002_auto_20200421_2136.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/chores/migrations/0003_auto_20200417_1716.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/chores/migrations/0004_auto_20200418_1810.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/custom_events/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/custom_events/migrations/0002_auto_20200417_1525.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/custom_events/migrations/0002_customevent_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0002_auto_20200417_1525.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0002_house_owner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/houses/migrations/0003_house_owner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0003_auto_20200415_2032.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0004_auto_20200415_2036.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0005_auto_20200417_1525.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0006_remove_user_house_owner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0007_auto_20200419_1904.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/migrations/0008_remove_user_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utilities/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utilities/migrations/0002_auto_20200417_1600.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utilities/migrations/0003_remove_utility_is_bookable.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +60,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../proep-GitHub/manage.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -84,10 +115,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="739" y="274" key="FileChooserDialogImpl" timestamp="1587500179657">
+    <state x="739" y="274" key="FileChooserDialogImpl" timestamp="1586781399488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587500179657" />
+    <state x="739" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586781399488" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1586781405841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

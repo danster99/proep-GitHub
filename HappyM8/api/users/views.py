@@ -3,7 +3,8 @@ from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet, GenericV
 from api.users.models import User, Tenant
 from api.users.serializers import UserSerializer, TenantSerializer,\
     TenantSerializerCode, TenantSerializerUser
-
+from rest_framework.mixins import CreateModelMixin
+from api.houses.models import House
 
 class UserList(ModelViewSet):
 
@@ -22,16 +23,16 @@ class UserList(ModelViewSet):
         return super().retrieve(request, *args, **kwargs)
 
 
-class TenantList(ModelViewSet):
+class TenantList(GenericViewSet, CreateModelMixin):
 
     queryset = Tenant.objects.all()
     serializer_class = TenantSerializer
 
     def perform_create(self, serializer):
-        instance = self.get_object()
-        current_tenants = Tenant.objects.filter(house=instance.house)
-        if instance.house.max_nr_tenants < current_tenants:
-            serializer.save()
+        instance = House.objects.get(pk=self.request.data.get('house'))
+        current_tenants = Tenant.objects.filter(house=instance)
+        if instance.max_nr_tenants < current_tenants.count():
+            return super().perform_create(serializer)
 
     def create(self, request, *args, **kwargs):
         """
