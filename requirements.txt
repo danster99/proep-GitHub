@@ -13,3 +13,4 @@ django-allauth==0.41.0
 django-rest-auth==0.9.5
 mysqlclient==1.4.6
 django-heroku
+gunicorn==20.0.4
