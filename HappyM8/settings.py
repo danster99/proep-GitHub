@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STATIC_ROOT=['.']
+STATIC_ROOT='.'
 
 
 # Application definition
