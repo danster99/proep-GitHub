@@ -17,7 +17,6 @@ from re import M
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -27,10 +26,9 @@ SECRET_KEY = 'm_s233tftw#2(jzq@1ysf39@69b#kscr3k!-iop25=gd)z9&%3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-STATIC_ROOT='.'
-
+STATIC_ROOT = '.'
 
 # Application definition
 
@@ -88,7 +86,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HappyM8.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -96,8 +93,8 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'happym8db',
-        'USER': 'happym8',
+        'NAME': 'happym8db2',
+        'USER': 'happym82',
         'PASSWORD': 'proep2020',
         'HOST': 'db4free.net',
         'PORT': '',
@@ -106,7 +103,6 @@ DATABASES = {
         },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -125,7 +121,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -151,7 +146,6 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
-
 
 AUTHENTICATION_BACKENDS = (
     # `allauth` specific authentication methods, such as login by e-mail
