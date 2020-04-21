@@ -13,9 +13,9 @@ class RoomSerializer(serializers.ModelSerializer):
 
 class HouseSerializer(serializers.ModelSerializer):
 
-    room_set = RoomSerializer(many=True)
+    room_set = RoomSerializer(many=True, read_only=True)
     tenant_set = TenantSerializer(many=True, read_only=True)
-    utility_set = UtilitySerializer(many=True)
+    utility_set = UtilitySerializer(many=True, read_only=True)
 
     class Meta:
         model = House
