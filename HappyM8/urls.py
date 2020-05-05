@@ -16,31 +16,33 @@ Including another URLconf
 
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include
 from rest_framework import routers
 
 from api.houses.views import HouseList, RoomList
 from api.bookings.views import BookingList
 from api.users.views import UserList, TenantList
 from api.utilities.views import UtilityList
-from api.chores.views import ChoreList
+from api.chores.views import ChoreList, NewChoreList
 from api.custom_events.views import CustomEventList
 
 endpoints = [
-    (r'houses', HouseList),
-    (r'users', UserList),
-    (r'bookings', BookingList),
-    (r'utilities', UtilityList),
-    (r'chores', ChoreList),
-    (r'customEvents', CustomEventList),
-    (r'tenants', TenantList),
-    (r'rooms', RoomList)
+    # (r'assign', TenantUserList, 'usertenant'),
+    (r'houses', HouseList, None),
+    (r'users', UserList, None),
+    (r'bookings', BookingList, None),
+    (r'utilities', UtilityList, None),
+    (r'chores', ChoreList, 'chore'),
+    (r'customEvents', CustomEventList, None),
+    (r'tenants', TenantList, 'tenants'),
+    (r'rooms', RoomList, None),
+    (r'newchore', NewChoreList, 'new-chore'),
 ]
 
 router = routers.DefaultRouter()
 
-for prefix, viewset in endpoints:
-    router.register(prefix=prefix, viewset=viewset)
+for prefix, viewset, basename in endpoints:
+    router.register(prefix=prefix, viewset=viewset, basename=basename)
 
 urlpatterns = [
     url('admin/', admin.site.urls),

@@ -1,6 +1,3 @@
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet
 
 from api.bookings.models import Booking
@@ -31,3 +28,10 @@ class BookingList(ModelViewSet):
         :return:
         """
         return super().create(request, *args, **kwargs)
+
+    def perform_create(self, serializer):
+        """
+        Checks if the
+        :param serializer:
+        :return:
+        """
