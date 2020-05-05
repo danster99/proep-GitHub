@@ -12,7 +12,6 @@ class UserList(ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    lookup_field = 'email'
 
     def retrieve(self, request, *args, **kwargs):
         """
@@ -25,19 +24,19 @@ class UserList(ModelViewSet):
         """
         return super().retrieve(request, *args, **kwargs)
 
-    # @action(detail=False, methods=['get'], url_path='detail')
-    # def getUserByEmail(self, request):
-    #     """
-    #     get user by email
-    #     :param request:
-    #     :return:
-    #     """
-    #     user = get_object_or_404(User, email__exact=request.query_params.get('email'))
-    #     serializer = UserSerializer(user)
-    #     return Response(serializer.data)
-    #     # tenant = get_object_or_404(Tenant,email__exact=request.data.get('email'))
-    #     # serializer = TenantSerializerCode(tenant)
-    #     # return Response(serializer.data)
+    @action(detail=False, methods=['get'], url_path='detail')
+    def get_user_by_email(self, request):
+        """
+        get user by email
+        :param request:
+        :return:
+        """
+        user = get_object_or_404(User, email__exact=request.query_params.get('email'))
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+        # tenant = get_object_or_404(Tenant,email__exact=request.data.get('email'))
+        # serializer = TenantSerializerCode(tenant)
+        # return Response(serializer.data)
 
 
 class TenantList(GenericViewSet, CreateModelMixin):
