@@ -99,7 +99,7 @@ DATABASES = {
         'USER': 'jiavshcdchwgmm',
         'PASSWORD': '151960dda9ef0c2f1208e7f1fa8457a8898749a056b283ea1436ee3b0fdfb2a5',
         'HOST': 'ec2-54-217-213-79.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432'
+        'PORT': '5432',
         'OPTIONS': {
             'connect_timeout': 99999999,
         },
