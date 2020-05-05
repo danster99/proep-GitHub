@@ -27,7 +27,7 @@ SECRET_KEY = 'm_s233tftw#2(jzq@1ysf39@69b#kscr3k!-iop25=gd)z9&%3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,13 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
-    'rest_auth.registration',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'rest_auth.registration',
     'api',
     'api.users',
     'api.houses',
@@ -55,10 +55,6 @@ INSTALLED_APPS = [
     'api.custom_events',
 ]
 AUTH_USER_MODEL = 'users.User'
-
-REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'api.users.serializers.UserRegisterSerializer',
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -96,40 +92,19 @@ WSGI_APPLICATION = 'HappyM8.wsgi.application'
 
 DATABASES = {
 
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'dbi378622',
-    #     'USER': 'dbi378622',
-    #     'PASSWORD': 'proep2020',
-    #     'HOST': 'studmysql01.fhict.local',
-    #     'PORT': '',
-    #     'OPTIONS': {
-    #         'connect_timeout': 99999999,
-    #     },
-    # },
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'df4b4m158nvjab',
-        'USER': 'jiavshcdchwgmm',
-        'PASSWORD': '151960dda9ef0c2f1208e7f1fa8457a8898749a056b283ea1436ee3b0fdfb2a5',
-        'HOST': 'ec2-54-217-213-79.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'happym8db',
+        'USER': 'happym8',
+        'PASSWORD': 'proep2020',
+        'HOST': 'db4free.net',
+        'PORT': '',
+        'OPTIONS': {
+            'connect_timeout': 99999999,
+        },
     }
 }
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
-ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_UNIQUE_EMAIL = True
 
-
-AUTHENTICATION_BACKENDS = (
-    # `allauth` specific authentication methods, such as login by e-mail
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
-
-SITE_ID = 1
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -148,8 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Internationalization
@@ -170,4 +143,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True
 
+
+AUTHENTICATION_BACKENDS = (
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
