@@ -6,9 +6,11 @@ from api.utilities.serializers import UtilitySerializer
 
 class RoomSerializer(serializers.ModelSerializer):
 
+    id = serializers.ReadOnlyField()
+
     class Meta:
         model = Room
-        fields = ('room_type', 'is_bookable', 'house')
+        fields = ('id', 'room_type', 'is_bookable', 'house')
 
 
 class HouseSerializer(serializers.ModelSerializer):

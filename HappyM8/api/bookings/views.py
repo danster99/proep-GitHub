@@ -28,3 +28,11 @@ class BookingList(ModelViewSet):
         :return:
         """
         return super().create(request, *args, **kwargs)
+
+    def get_avaliable(self, request):
+        """
+        return available timeslots
+        :param request:
+        :return:
+        """
+        pass

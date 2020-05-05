@@ -7,4 +7,4 @@ class UtilitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Utility
-        fields = ('house', 'name')
+        fields = ('id', 'house', 'name')

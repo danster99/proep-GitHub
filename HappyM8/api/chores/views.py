@@ -1,10 +1,8 @@
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.decorators import action
+
 from rest_framework.viewsets import ModelViewSet
 
 from api.chores.models import Chore
-from api.chores.serializers import ChoreSerializer
+from api.chores.serializers import ChoreSerializer, NewChoreSerializer
 
 
 class ChoreList(ModelViewSet):
@@ -14,8 +12,34 @@ class ChoreList(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """
-        Retrieve existing clients. It is possible to filter clients by email.
+        Retrieve existing chores with user and assigned time.
         ex: ?email='some-client@mail.com'
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        return super().list(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        """
+        Add user as well as begin and end time for an existing chore
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        return super().update(request, *args, **kwargs)
+
+
+class NewChoreList(ModelViewSet):
+
+    queryset = Chore.objects.all()
+    serializer_class = NewChoreSerializer
+
+    def list(self, request, *args, **kwargs):
+        """
+        get chores with name and description
         :param request:
         :param args:
         :param kwargs:
@@ -25,7 +49,7 @@ class ChoreList(ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """
-        Create a nre chore
+        create a new chore
         :param request:
         :param args:
         :param kwargs:

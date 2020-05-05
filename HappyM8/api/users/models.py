@@ -32,6 +32,7 @@ class User(AbstractBaseUser):
     phone_nr = models.CharField(max_length=30, null=True, blank=True)
     is_admin = models.BooleanField(default=False)
     username = models.CharField(max_length=20, null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
     USERNAME_FIELD = 'email'
 
 

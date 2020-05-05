@@ -92,14 +92,14 @@ WSGI_APPLICATION = 'HappyM8.wsgi.application'
 
 
 DATABASES = {
-
+    
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'happym8db2',
-        'USER': 'happym82',
-        'PASSWORD': 'proep2020',
-        'HOST': 'db4free.net',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'df4b4m158nvjab',
+        'USER': 'jiavshcdchwgmm',
+        'PASSWORD': '151960dda9ef0c2f1208e7f1fa8457a8898749a056b283ea1436ee3b0fdfb2a5',
+        'HOST': 'ec2-54-217-213-79.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432'
         'OPTIONS': {
             'connect_timeout': 99999999,
         },
