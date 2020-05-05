@@ -54,7 +54,7 @@ class TenantSerializerCode(serializers.ModelSerializer):
     """
     class Meta:
         model = Tenant
-        fields = ('code')
+        fields = ('code',)
 
 
 class TenantSerializerUser(serializers.ModelSerializer):
