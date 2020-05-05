@@ -35,7 +35,8 @@ endpoints = [
     (r'customEvents', CustomEventList),
     (r'tenants', TenantList),
     (r'rooms', RoomList),
-    (r'newchore', NewChoreList)
+    (r'newchore', NewChoreList),
+    # (r'tenantuser', TenantUserList)
 ]
 
 router = routers.DefaultRouter()

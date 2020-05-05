@@ -29,10 +29,9 @@ class BookingList(ModelViewSet):
         """
         return super().create(request, *args, **kwargs)
 
-    def get_avaliable(self, request):
+    def perform_create(self, serializer):
         """
-        return available timeslots
-        :param request:
+        Checks if the
+        :param serializer:
         :return:
         """
-        pass

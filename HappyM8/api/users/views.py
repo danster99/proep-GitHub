@@ -4,8 +4,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from api.users.models import User, Tenant
 from api.users.serializers import UserSerializer,  TenantSerializer,\
-    TenantSerializerCode
-from rest_framework.mixins import CreateModelMixin
+    TenantSerializerCode, TenantSerializerUser
+from rest_framework.mixins import CreateModelMixin, UpdateModelMixin
 
 
 class UserList(ModelViewSet):
@@ -15,8 +15,7 @@ class UserList(ModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         """
-        Retrieve existing clients. It is possible to filter clients by email.
-        ex: ?email='some-client@mail.com'
+        Retrieve a user
         :param request:
         :param args:
         :param kwargs:
@@ -80,19 +79,25 @@ class TenantList(GenericViewSet, CreateModelMixin):
         serializer.save()
         return Response(serializer.data)
 
-    # def update(self, request, *args, **kwargs):
-    #     """
-    #     Assign make user a tenant, change status to assigned
-    #     :param request:
-    #     :param args:
-    #     :param kwargs:
-    #     :return:
-    #     """
-    #     return super().update(request, *args, **kwargs)
-    #
-    # def perform_update(self, serializer):
-    #     instance = self.get_object()
-    #     instance.user_id = serializer.data.get("user")
-    #     instance.status = 2
-    #     instance.save()
-    #     super().perform_update(serializer)
+
+# class TenantUserList(GenericViewSet, UpdateModelMixin):
+#
+#     queryset = Tenant.objects.all()
+#     serializer_class = TenantSerializerUser
+#
+#     def update(self, request, *args, **kwargs):
+#         """
+#         Assign make user a tenant, change status to assigned
+#         :param request:
+#         :param args:
+#         :param kwargs:
+#         :return:
+#         """
+#         return super().update(request, *args, **kwargs)
+#
+#     def perform_update(self, serializer):
+#         instance = self.get_object()
+#         instance.user_id = serializer.data.get("user")
+#         instance.status = 2
+#         instance.save()
+#         super().perform_update(serializer)
