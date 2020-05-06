@@ -60,56 +60,56 @@ class TenantList(GenericViewSet, CreateModelMixin):
         return super().create(request, *args, **kwargs)
 
 
-class TenantCodeList(GenericViewSet, RetrieveModelMixin):
-
-    queryset = Tenant.objects.all()
-    serializer_class = TenantSerializerCode
-    lookup_field = 'email'
-    lookup_url_kwarg = 'email'
-
-    def retrieve(self, request, *args, **kwargs):
+# class TenantCodeList(GenericViewSet, RetrieveModelMixin):
+#
+#     queryset = Tenant.objects.all()
+#     serializer_class = TenantSerializerCode
+#     lookup_field = 'email'
+#     lookup_url_kwarg = 'email'
+#
+#     def retrieve(self, request, *args, **kwargs):
+#         """
+#
+#         :param request:
+#         :param args:
+#         :param kwargs:
+#         :return:
+#         """
+#         return super().retrieve(request, *args, **kwargs)
+    @action(detail=False, methods=['get'], url_path='code')
+    def get_tenant_code(self, request):
         """
-
+        So if a method is not defined in an action,
+         it will automatically create all endpoints for CRUD
         :param request:
-        :param args:
-        :param kwargs:
         :return:
         """
-        return super().retrieve(request, *args, **kwargs)
-    # @action(detail=False, methods=['get'], url_path='code')
-    # def get_tenant_code(self, request):
-    #     """
-    #     So if a method is not defined in an action,
-    #      it will automatically create all endpoints for CRUD
-    #     :param request:
-    #     :return:
-    #     """
-    #     tenant = get_object_or_404(Tenant, email__exact=request.query_params.get('email'))
-    #     serializer = TenantSerializerCode(tenant)
-    #     return Response(serializer.data)
-    #
-    # @action(detail=False, url_path='update/status', methods=['put'])
-    # def update_tenant_status(self, request, *args, **kwargs):
-    #     tenant = get_object_or_404(Tenant, email__exact=request.query_params.get('email'))
-    #     serializer = TenantUserSerializer(tenant, data=request.data, partial=True)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.save()
-    #     return Response(serializer.data)
+        tenant = get_object_or_404(Tenant, email__exact=request.query_params.get('email'))
+        serializer = TenantSerializerCode(tenant)
+        return Response(serializer.data)
+
+    @action(detail=False, url_path='update/status', methods=['put'])
+    def update_tenant_status(self, request, *args, **kwargs):
+        tenant = get_object_or_404(Tenant, email__exact=request.query_params.get('email'))
+        serializer = TenantUserSerializer(tenant, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
 
 
-class TenantUserList(GenericViewSet, UpdateModelMixin):
-
-    queryset = Tenant.objects.all()
-    serializer_class = TenantUserSerializer
-    lookup_field = 'email'
-
-    def update(self, request, *args, **kwargs):
-        """
-        Assign make user a tenant, change status to assigned
-        :param request:
-        :param args:
-        :param kwargs:
-        :return:
-        """
-        return super().update(request, *args, **kwargs)
+# class TenantUserList(GenericViewSet, UpdateModelMixin):
+#
+#     queryset = Tenant.objects.all()
+#     serializer_class = TenantUserSerializer
+#     lookup_field = 'email'
+#
+#     def update(self, request, *args, **kwargs):
+#         """
+#         Assign make user a tenant, change status to assigned
+#         :param request:
+#         :param args:
+#         :param kwargs:
+#         :return:
+#         """
+#         return super().update(request, *args, **kwargs)
 
