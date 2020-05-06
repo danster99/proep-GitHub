@@ -7,7 +7,7 @@ from api.users.models import Tenant
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name')
+        fields = ('id', 'first_name', 'last_name')
 
 
 class UserRegisterSerializer(RegisterSerializer):
@@ -57,11 +57,9 @@ class TenantSerializerCode(serializers.ModelSerializer):
         fields = ('code',)
 
 
-class TenantSerializerUser(serializers.ModelSerializer):
-
-    email = serializers.ReadOnlyField()
+class TenantUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tenant
-        fields = ('user', 'email')
+        fields = ('user', 'status')
 

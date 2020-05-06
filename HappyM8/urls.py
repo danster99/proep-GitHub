@@ -27,22 +27,23 @@ from api.chores.views import ChoreList, NewChoreList
 from api.custom_events.views import CustomEventList
 
 endpoints = [
-    (r'houses', HouseList),
-    (r'users', UserList),
-    (r'bookings', BookingList),
-    (r'utilities', UtilityList),
-    (r'chores', ChoreList),
-    (r'customEvents', CustomEventList),
-    (r'tenants', TenantList),
-    (r'rooms', RoomList),
-    (r'newchore', NewChoreList),
-    # (r'tenantuser', TenantUserList)
+    # (r'assign', TenantUserList, 'tenant-user'),
+    (r'houses', HouseList, None),
+    (r'users', UserList, None),
+    (r'bookings', BookingList, None),
+    (r'utilities', UtilityList, None),
+    (r'chores', ChoreList, 'chore'),
+    (r'customEvents', CustomEventList, None),
+    (r'tenants', TenantList, 'tenants'),
+    (r'rooms', RoomList, None),
+    (r'newchore', NewChoreList, 'new-chore'),
+    # (r'code/email', TenantCodeList, 'code')
 ]
 
 router = routers.DefaultRouter()
 
-for prefix, viewset in endpoints:
-    router.register(prefix=prefix, viewset=viewset)
+for prefix, viewset, basename in endpoints:
+    router.register(prefix=prefix, viewset=viewset, basename=basename)
 
 urlpatterns = [
     url('admin/', admin.site.urls),
