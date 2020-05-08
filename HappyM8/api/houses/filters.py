@@ -13,4 +13,4 @@ class IsOwnerFilter(BaseFilterBackend):
         :param view:
         :return:
         """
-        return queryset.filter(owner=request.user)
+        return queryset.get(owner=request.user)

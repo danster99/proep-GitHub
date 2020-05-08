@@ -28,7 +28,7 @@ from api.custom_events.views import CustomEventList
 
 endpoints = [
     # (r'assign', TenantUserList, 'tenant-user'),
-    (r'houses', HouseList, None),
+    (r'houses', HouseList, 'houses'),
     (r'users', UserList, None),
     (r'bookings', BookingList, None),
     (r'utilities', UtilityList, None),

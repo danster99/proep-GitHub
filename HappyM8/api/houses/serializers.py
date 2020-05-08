@@ -23,3 +23,4 @@ class HouseSerializer(serializers.ModelSerializer):
         model = House
         fields = ('address',  'max_nr_tenants', 'rules',
                   'owner', 'room_set', 'tenant_set', 'utility_set')
+
