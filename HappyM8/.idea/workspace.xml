@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d1ec1f2-57fd-4ce6-b06d-771529e2c354" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/middle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HappyM8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HappyM8.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,13 +90,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="739" y="274" key="FileChooserDialogImpl" />
-    <state x="739" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" />
-    <state x="461" y="162" key="SettingsEditor" />
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" />
-    <state x="656" y="118" width="607" height="804" key="find.popup" />
-    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" />
+    <state x="739" y="274" key="FileChooserDialogImpl" timestamp="1588967002858" />
+    <state x="739" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588967002859" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1588967002859" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588967002859" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588967002859" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588967002859" />
+    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1588967168841">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588967168841" />
   </component>
 </project>
