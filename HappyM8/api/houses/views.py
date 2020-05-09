@@ -15,7 +15,7 @@ class HouseList(GenericViewSet, CreateModelMixin):
         .prefetch_related('room_set', 'tenant_set', 'utility_set')\
         .all()
     serializer_class = HouseSerializer
-    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     # filter_backends = IsOwnerFilter
 
     def create(self, request, *args, **kwargs):
