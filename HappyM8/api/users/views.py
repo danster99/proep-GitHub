@@ -1,27 +1,18 @@
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet, GenericViewSet
+from rest_framework.viewsets import GenericViewSet
 from api.users.models import User, Tenant
 from api.users.serializers import UserSerializer,  TenantSerializer,\
-    TenantSerializerCode, TenantUserSerializer
-from rest_framework.mixins import CreateModelMixin, UpdateModelMixin, RetrieveModelMixin
+     TenantUserSerializer
+from rest_framework.mixins import CreateModelMixin
+from rest_framework.serializers import ValidationError
 
 
-class UserList(ModelViewSet):
+class UserList(GenericViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-    def retrieve(self, request, *args, **kwargs):
-        """
-        Retrieve a user
-        :param request:
-        :param args:
-        :param kwargs:
-        :return:
-        """
-        return super().retrieve(request, *args, **kwargs)
 
     @action(detail=False, methods=['get'], url_path='detail')
     def get_user_by_email(self, request):
@@ -33,9 +24,6 @@ class UserList(ModelViewSet):
         user = get_object_or_404(User, email__exact=request.query_params.get('email'))
         serializer = UserSerializer(user)
         return Response(serializer.data)
-        # tenant = get_object_or_404(Tenant,email__exact=request.data.get('email'))
-        # serializer = TenantSerializerCode(tenant)
-        # return Response(serializer.data)
 
 
 class TenantList(GenericViewSet, CreateModelMixin):
@@ -44,10 +32,13 @@ class TenantList(GenericViewSet, CreateModelMixin):
     serializer_class = TenantSerializer
 
     def perform_create(self, serializer):
-        house = serializer.validated_data.get('house')
-        current_tenants = Tenant.objects.filter(house=house)
+        user = self.request.user
+        house = user.tenant.house
+        current_tenants = Tenant.objects.filter(house=house, status=2)
         if house.max_nr_tenants > current_tenants.count():
-            return serializer.save()
+            return serializer.save(house=house)
+        else:
+            raise ValidationError("max tenant number already exceeded")
 
     def create(self, request, *args, **kwargs):
         """
@@ -59,57 +50,10 @@ class TenantList(GenericViewSet, CreateModelMixin):
         """
         return super().create(request, *args, **kwargs)
 
-
-# class TenantCodeList(GenericViewSet, RetrieveModelMixin):
-#
-#     queryset = Tenant.objects.all()
-#     serializer_class = TenantSerializerCode
-#     lookup_field = 'email'
-#     lookup_url_kwarg = 'email'
-#
-#     def retrieve(self, request, *args, **kwargs):
-#         """
-#
-#         :param request:
-#         :param args:
-#         :param kwargs:
-#         :return:
-#         """
-#         return super().retrieve(request, *args, **kwargs)
-    @action(detail=False, methods=['get'], url_path='code')
-    def get_tenant_code(self, request):
-        """
-        So if a method is not defined in an action,
-         it will automatically create all endpoints for CRUD
-        :param request:
-        :return:
-        """
-        tenant = get_object_or_404(Tenant, email__exact=request.query_params.get('email'))
-        serializer = TenantSerializerCode(tenant)
-        return Response(serializer.data)
-
     @action(detail=False, url_path='update/status', methods=['put'])
     def update_tenant_status(self, request, *args, **kwargs):
-        tenant = get_object_or_404(Tenant, email__exact=request.query_params.get('email'))
+        tenant = Tenant.objects.get(code=request.data.get('code'), status=1)
         serializer = TenantUserSerializer(tenant, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        serializer.save(user=self.request.user, status=2)
         return Response(serializer.data)
-
-
-# class TenantUserList(GenericViewSet, UpdateModelMixin):
-#
-#     queryset = Tenant.objects.all()
-#     serializer_class = TenantUserSerializer
-#     lookup_field = 'email'
-#
-#     def update(self, request, *args, **kwargs):
-#         """
-#         Assign make user a tenant, change status to assigned
-#         :param request:
-#         :param args:
-#         :param kwargs:
-#         :return:
-#         """
-#         return super().update(request, *args, **kwargs)
-

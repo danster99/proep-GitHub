@@ -8,11 +8,11 @@ class ChoreSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Chore
-        fields = ('id', 'name', 'user', 'begin_time', 'end_time')
+        fields = ('id', 'name', 'user', 'begin_time', 'end_time', 'description')
 
 
 class NewChoreSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Chore
-        fields = ('id', 'name', 'description')
+        fields = ('id', 'name', 'description', 'house')

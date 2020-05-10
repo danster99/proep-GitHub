@@ -3,12 +3,14 @@ from rest_framework.viewsets import ModelViewSet
 
 from api.chores.models import Chore
 from api.chores.serializers import ChoreSerializer, NewChoreSerializer
+from api.chores.filters import ChoreFilter
 
 
 class ChoreList(ModelViewSet):
 
     queryset = Chore.objects.all()
     serializer_class = ChoreSerializer
+    filter_backends = [ChoreFilter, ]
 
     def list(self, request, *args, **kwargs):
         """
@@ -30,6 +32,9 @@ class ChoreList(ModelViewSet):
         :return:
         """
         return super().update(request, *args, **kwargs)
+
+    def perform_update(self, serializer):
+        return serializer.save(user=self.request.user)
 
 
 class NewChoreList(ModelViewSet):
@@ -56,3 +61,8 @@ class NewChoreList(ModelViewSet):
         :return:
         """
         return super().create(request, *args, **kwargs)
+
+    def perform_create(self, serializer):
+        user = self.request.user
+        house = user.tenant.house
+        return serializer.save(house=house)

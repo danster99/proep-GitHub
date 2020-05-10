@@ -15,8 +15,7 @@ class HouseList(GenericViewSet, CreateModelMixin):
         .prefetch_related('room_set', 'tenant_set', 'utility_set')\
         .all()
     serializer_class = HouseSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    # filter_backends = IsOwnerFilter
+    permission_classes = [permissions.IsAuthenticated, ]
 
     def create(self, request, *args, **kwargs):
         """
@@ -62,3 +61,7 @@ class RoomList(GenericViewSet, CreateModelMixin):
         """
         return super().create(request, *args, **kwargs)
 
+    def perform_create(self, serializer):
+        user = self.request.user
+        house = user.tenant.house
+        return serializer.save(house=house)

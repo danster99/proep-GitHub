@@ -1,13 +1,15 @@
 from rest_framework.viewsets import ModelViewSet
-
 from api.bookings.models import Booking
 from api.bookings.serializers import BookingSerializer
+from rest_framework.serializers import ValidationError
+from api.bookings.filters import BookingFilter
 
 
 class BookingList(ModelViewSet):
 
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+    filter_backends = [BookingFilter, ]
 
     def list(self, request, *args, **kwargs):
         """
@@ -36,17 +38,20 @@ class BookingList(ModelViewSet):
         :return:
         """
         start_time = serializer.validated_data.get('begin_time')
-        end_time = serializer.validated_data.get('end_time')
+        finish_time = serializer.validated_data.get('end_time')
         room = serializer.validated_data.get('room')
         utility = serializer.validated_data.get('utility')
-        print('\033[34m{}\033[0m'.format(Booking.objects.filter(utility=utility, room=room)))
-        for booking in Booking.objects.filter(utility=utility, room=room):
-            print('\033[34m{}\033[0m'.format(booking))
-            print('\033[34m{}\033[0m'.format(booking.begin_time))
-            print('\033[34m{}\033[0m'.format(booking.end_time))
-            print('\033[34m{}\033[0m'.format('sjkvnaerjvberiguebriu'))
-            print('\033[34m{}\033[0m'.format(start_time))
-            print('\033[34m{}\033[0m'.format(end_time))
-            if booking.begin_time >= end_time >= booking.end_time and booking.begin_time >= start_time >= booking.end_time:
-                return serializer.save()
-
+        bookings = Booking.objects.filter(utility=utility, room=room)
+        if not bookings:
+            return serializer.save(user=self.request.user)
+        for booking in bookings:
+            if booking.begin_time == start_time and booking.end_time == finish_time:
+                raise ValidationError("begin or end time overlap")
+            elif booking.begin_time < start_time < booking.end_time:
+                raise ValidationError("begin time overlaps")
+            elif booking.begin_time < finish_time < booking.end_time:
+                raise ValidationError("end time overlaps")
+            elif start_time > booking.begin_time > finish_time and start_time > booking.end_time >finish_time:
+                raise ValidationError("overlap")
+            else:
+                return serializer.save(user=self.request.user)

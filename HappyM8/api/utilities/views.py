@@ -2,12 +2,14 @@ from rest_framework.viewsets import ModelViewSet
 
 from api.utilities.models import Utility
 from api.utilities.serializers import UtilitySerializer
+from api.utilities.filters import UtilityFilter
 
 
 class UtilityList(ModelViewSet):
 
     queryset = Utility.objects.all()
     serializer_class = UtilitySerializer
+    filter_backends = [UtilityFilter, ]
 
     def list(self, request, *args, **kwargs):
         """
@@ -28,5 +30,10 @@ class UtilityList(ModelViewSet):
         :param kwargs:
         :return:
         """
-        return super().create(request, *args ,**kwargs)
+        return super().create(request, *args, **kwargs)
+
+    def perform_create(self, serializer):
+        user = self.request.user
+        house = user.tenant.house
+        return serializer.save(house=house)
 

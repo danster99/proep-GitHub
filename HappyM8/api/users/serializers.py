@@ -48,18 +48,11 @@ class TenantSerializer(serializers.ModelSerializer):
         fields = ('code', 'email', 'house', 'user', 'status')
 
 
-class TenantSerializerCode(serializers.ModelSerializer):
-    """
-    used for getting the code
-    """
-    class Meta:
-        model = Tenant
-        fields = ('code',)
-
-
 class TenantUserSerializer(serializers.ModelSerializer):
 
+    code = serializers.ReadOnlyField()
+
     class Meta:
         model = Tenant
-        fields = ('user', 'status')
+        fields = ('user', 'status', 'code')
 
