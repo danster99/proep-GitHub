@@ -32,11 +32,10 @@ class TenantList(GenericViewSet, CreateModelMixin):
     serializer_class = TenantSerializer
 
     def perform_create(self, serializer):
-        user = self.request.user
-        house = user.tenant.house
+        house = serializer.validated_data.get('house')
         current_tenants = Tenant.objects.filter(house=house, status=2)
         if house.max_nr_tenants > current_tenants.count():
-            return serializer.save(house=house)
+            return serializer.save()
         else:
             raise ValidationError("max tenant number already exceeded")
 

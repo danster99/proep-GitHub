@@ -8,9 +8,10 @@ from api.houses.serializers import HouseSerializer, RoomSerializer
 from rest_framework import permissions
 from rest_framework.mixins import CreateModelMixin, UpdateModelMixin
 from api.houses.filters import HouseFilter
+from rest_framework.viewsets import ModelViewSet
 
 
-class HouseList(GenericViewSet, CreateModelMixin, UpdateModelMixin):
+class HouseList(ModelViewSet):
 
     queryset = House.objects\
         .prefetch_related('room_set', 'tenant_set', 'utility_set')\
@@ -47,12 +48,9 @@ class HouseList(GenericViewSet, CreateModelMixin, UpdateModelMixin):
         :return:
         """
         queryset = self.get_queryset()
-        # if self.request.user.is_admin:
-        #     obj = get_object_or_404(queryset, owner=self.request.user)
-        # else:
         if not self.request.user.is_admin:
             obj = get_object_or_404(queryset, tenant__user=self.request.user)
-        serializer = HouseSerializer(obj)
+            serializer = HouseSerializer(obj)
         return Response(serializer.data)
 
     def perform_create(self, serializer):

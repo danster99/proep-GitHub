@@ -18,9 +18,10 @@ class HouseSerializer(serializers.ModelSerializer):
     room_set = RoomSerializer(many=True, read_only=True)
     tenant_set = TenantSerializer(many=True, read_only=True)
     utility_set = UtilitySerializer(many=True, read_only=True)
+    id = serializers.ReadOnlyField()
 
     class Meta:
         model = House
-        fields = ('address',  'max_nr_tenants', 'rules',
+        fields = ('id', 'address',  'max_nr_tenants', 'rules',
                   'owner', 'room_set', 'tenant_set', 'utility_set')
 
