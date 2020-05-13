@@ -1,7 +1,7 @@
 from rest_framework.filters import BaseFilterBackend
 
 
-class IsOwnerFilter(BaseFilterBackend):
+class HouseFilter(BaseFilterBackend):
     """
     filter that allows a user to only see the house created by them
     """
@@ -13,4 +13,5 @@ class IsOwnerFilter(BaseFilterBackend):
         :param view:
         :return:
         """
-        return queryset.get(owner=request.user)
+
+        return queryset.filter(owner=request.user)

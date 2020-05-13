@@ -6,16 +6,28 @@ from rest_framework.viewsets import GenericViewSet
 from api.houses.models import House, Room
 from api.houses.serializers import HouseSerializer, RoomSerializer
 from rest_framework import permissions
-from rest_framework.mixins import CreateModelMixin
+from rest_framework.mixins import CreateModelMixin, UpdateModelMixin
+from api.houses.filters import HouseFilter
 
 
-class HouseList(GenericViewSet, CreateModelMixin):
+class HouseList(GenericViewSet, CreateModelMixin, UpdateModelMixin):
 
     queryset = House.objects\
         .prefetch_related('room_set', 'tenant_set', 'utility_set')\
         .all()
     serializer_class = HouseSerializer
     permission_classes = [permissions.IsAuthenticated, ]
+    filter_backends = [HouseFilter, ]
+
+    def update(self, request, *args, **kwargs):
+        """
+        update a house's details
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        return super().update(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
         """
@@ -35,9 +47,10 @@ class HouseList(GenericViewSet, CreateModelMixin):
         :return:
         """
         queryset = self.get_queryset()
-        if self.request.user.is_admin:
-            obj = get_object_or_404(queryset, owner=self.request.user)
-        else:
+        # if self.request.user.is_admin:
+        #     obj = get_object_or_404(queryset, owner=self.request.user)
+        # else:
+        if not self.request.user.is_admin:
             obj = get_object_or_404(queryset, tenant__user=self.request.user)
         serializer = HouseSerializer(obj)
         return Response(serializer.data)
