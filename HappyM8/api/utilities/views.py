@@ -31,9 +31,3 @@ class UtilityList(ModelViewSet):
         :return:
         """
         return super().create(request, *args, **kwargs)
-
-    def perform_create(self, serializer):
-        user = self.request.user
-        house = user.tenant.house
-        return serializer.save(house=house)
-

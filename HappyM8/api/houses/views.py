@@ -6,7 +6,7 @@ from rest_framework.viewsets import GenericViewSet
 from api.houses.models import House, Room
 from api.houses.serializers import HouseSerializer, RoomSerializer
 from rest_framework import permissions
-from rest_framework.mixins import CreateModelMixin, UpdateModelMixin
+from rest_framework.mixins import CreateModelMixin
 from api.houses.filters import HouseFilter
 from rest_framework.viewsets import ModelViewSet
 
@@ -71,8 +71,3 @@ class RoomList(GenericViewSet, CreateModelMixin):
         :return:
         """
         return super().create(request, *args, **kwargs)
-
-    def perform_create(self, serializer):
-        user = self.request.user
-        house = user.tenant.house
-        return serializer.save(house=house)
