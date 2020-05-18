@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'api.chores',
     'api.utilities',
     'api.custom_events',
+    'api.notifications',
 ]
 AUTH_USER_MODEL = 'users.User'
 
