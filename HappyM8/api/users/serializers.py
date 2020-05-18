@@ -24,14 +24,14 @@ class UserRegisterSerializer(RegisterSerializer):
             'email': self.validated_data.get('email', ''),
             'first_name': self.validated_data.get('first_name', ''),
             'last_name': self.validated_data.get('last_name', ''),
-            'age': self.validated_data.get('age', ''),
+            'birth_date': self.validated_data.get('birth_date', ''),
             'is_admin': self.validated_data.get('is_admin', '')
 
         }
 
     def save(self, request):
         user = super().save(request)
-        user.age = self.data.get('age')
+        user.birth_date = self.data.get('birth_date')
         user.is_admin = self.data.get('is_admin')
         user.save()
         return user
