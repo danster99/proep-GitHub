@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from api.notifications.models import Notification
 from api.notifications.serializers import NotificationSerializer
+from api.notifications.filters import NotificationFilter
 
 
 # Create your views here.
@@ -9,6 +9,7 @@ class NotificationList(ModelViewSet):
 
     queryset = Notification.objects.all()
     serializer_class = NotificationSerializer
+    filter_backends = [NotificationFilter, ]
 
     def list(self, request, *args, **kwargs):
         """

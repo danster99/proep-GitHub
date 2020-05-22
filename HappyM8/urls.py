@@ -25,9 +25,9 @@ from api.users.views import UserList, TenantList
 from api.utilities.views import UtilityList
 from api.chores.views import ChoreList, NewChoreList
 from api.custom_events.views import CustomEventList
+from api.notifications.views import NotificationList
 
 endpoints = [
-    # (r'assign', TenantUserList, 'tenant-user'),
     (r'houses', HouseList, 'houses'),
     (r'users', UserList, None),
     (r'bookings', BookingList, None),
@@ -37,7 +37,7 @@ endpoints = [
     (r'tenants', TenantList, 'tenants'),
     (r'rooms', RoomList, None),
     (r'newchore', NewChoreList, 'new-chore'),
-    # (r'code/email', TenantCodeList, 'code')
+    (r'notifications', NotificationList, None)
 ]
 
 router = routers.DefaultRouter()
