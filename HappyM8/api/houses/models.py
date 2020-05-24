@@ -5,7 +5,7 @@ class House(models.Model):
 
     max_nr_tenants = models.IntegerField()
     rules = models.TextField(max_length=200)
-    postcode = models.CharField(max_length=10, null=True, blank=True)
+    address = models.CharField(max_length=50, null=True, blank=True)
     house_nr = models.IntegerField(null=True, blank=True)
 
     # foreign keys

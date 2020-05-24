@@ -2,6 +2,7 @@ from rest_framework import serializers
 from api.houses.models import House, Room
 from api.users.serializers import TenantSerializer
 from api.utilities.serializers import UtilitySerializer
+from api.notifications.serializers import NotificationSerializer
 
 
 class RoomSerializer(serializers.ModelSerializer):
@@ -18,6 +19,7 @@ class HouseSerializer(serializers.ModelSerializer):
     room_set = RoomSerializer(many=True, read_only=True)
     tenant_set = TenantSerializer(many=True, read_only=True)
     utility_set = UtilitySerializer(many=True, read_only=True)
+    notification_set = NotificationSerializer(many=True, read_only=True)
     id = serializers.ReadOnlyField()
 
     class Meta:

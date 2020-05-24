@@ -7,4 +7,4 @@ class CustomEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomEvent
         fields = ('user', 'name', 'description',
-                  'begin_time', 'end_time', 'house')
+                  'begin_time', 'end_time', 'house', 'notify_owner')
