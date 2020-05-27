@@ -13,4 +13,4 @@ class CustomEvent(models.Model):
     description = models.TextField(max_length=500)
     begin_time = models.DateTimeField()
     end_time = models.DateTimeField()
-    notify_owner = models.BooleanField()
+    notify_owner = models.BooleanField(default=False)

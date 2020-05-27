@@ -13,7 +13,7 @@ class BookingFilter(BaseFilterBackend):
         :param view:
         :return:
         """
-        new_queryset = queryset.filter(room__house=request.user.tenant.house)
-        second = queryset.filter(utility__house=request.user.tenant.house)
+        new_queryset = queryset.filter(house=request.user.tenant.house)
+        second = queryset.filter(house=request.user.tenant.house)
         return new_queryset | second
 

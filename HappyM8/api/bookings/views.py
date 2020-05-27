@@ -43,7 +43,8 @@ class BookingList(ModelViewSet):
         utility = serializer.validated_data.get('utility')
         bookings = Booking.objects.filter(utility=utility, room=room)
         if not bookings:
-            return serializer.save(user=self.request.user)
+            return serializer.save(user=self.request.user,
+                                   house=self.request.user.tenant.house)
         for booking in bookings:
             if booking.begin_time == start_time and booking.end_time == finish_time:
                 raise ValidationError("begin or end time overlap")
@@ -54,4 +55,5 @@ class BookingList(ModelViewSet):
             elif start_time > booking.begin_time > finish_time and start_time > booking.end_time >finish_time:
                 raise ValidationError("overlap")
             else:
-                return serializer.save(user=self.request.user)
+                return serializer.save(user=self.request.user,
+                                       house=self.request.user.tenant.house)

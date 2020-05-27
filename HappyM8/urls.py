@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import include
 from rest_framework import routers
 
-from api.houses.views import HouseList, RoomList
+from api.houses.views import HouseList, RoomList, CalendarList
 from api.bookings.views import BookingList
 from api.users.views import UserList, TenantList
 from api.utilities.views import UtilityList
@@ -37,7 +37,8 @@ endpoints = [
     (r'tenants', TenantList, 'tenants'),
     (r'rooms', RoomList, None),
     (r'newchore', NewChoreList, 'new-chore'),
-    (r'notifications', NotificationList, None)
+    (r'notifications', NotificationList, None),
+    (r'calendar', CalendarList, 'calendar')
 ]
 
 router = routers.DefaultRouter()

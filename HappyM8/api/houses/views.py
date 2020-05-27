@@ -4,9 +4,9 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from api.houses.models import House, Room
-from api.houses.serializers import HouseSerializer, RoomSerializer
+from api.houses.serializers import HouseSerializer, RoomSerializer, CalendarSerializer
 from rest_framework import permissions
-from rest_framework.mixins import CreateModelMixin
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin
 from api.houses.filters import HouseFilter
 from rest_framework.viewsets import ModelViewSet
 
@@ -71,3 +71,22 @@ class RoomList(GenericViewSet, CreateModelMixin):
         :return:
         """
         return super().create(request, *args, **kwargs)
+
+
+class CalendarList(GenericViewSet):
+
+    queryset = House.objects.all()
+    serializer_class = CalendarSerializer
+
+    @action(detail=False, methods=['get'], url_path='house')
+    def get_house_for_user(self, request):
+        """
+        get user by email
+        :param request:
+        :return:
+        """
+        queryset = self.get_queryset()
+        if not self.request.user.is_admin:
+            obj = get_object_or_404(queryset, tenant__user=self.request.user)
+            serializer = CalendarSerializer(obj)
+        return Response(serializer.data)
