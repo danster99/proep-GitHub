@@ -79,9 +79,9 @@ class CalendarList(GenericViewSet):
     serializer_class = CalendarSerializer
 
     @action(detail=False, methods=['get'], url_path='house')
-    def get_house_for_user(self, request):
+    def get_calendar_for_house(self, request):
         """
-        get user by email
+        get house calendar by user who is assigned to the house
         :param request:
         :return:
         """

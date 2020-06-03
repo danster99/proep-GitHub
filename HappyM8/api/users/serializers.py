@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserRegisterSerializer(RegisterSerializer):
     first_name = serializers.CharField()
     last_name = serializers.CharField()
-    age = serializers.CharField()
+    birth_date = serializers.CharField()
     is_admin = serializers.BooleanField()
 
     def get_cleaned_data(self):

@@ -5,9 +5,9 @@ from api.houses.models import House, Room
 from api.users.serializers import TenantSerializer
 from api.utilities.serializers import UtilitySerializer
 from api.notifications.serializers import NotificationSerializer
-from api.custom_events.serializers import CustomEventSerializer
-from api.chores.serializers import ChoreSerializer
-from api.bookings.serializers import BookingSerializer
+from api.custom_events.serializers import CustomEventCalendar
+from api.chores.serializers import ChoreCalendar
+from api.bookings.serializers import BookingCalendar
 
 
 class RoomSerializer(serializers.ModelSerializer):
@@ -35,10 +35,14 @@ class HouseSerializer(serializers.ModelSerializer):
 
 class CalendarSerializer(serializers.ModelSerializer):
 
-    customevent_set = CustomEventSerializer(many=True, read_only=True)
-    booking_set = BookingSerializer(many=True, read_only=True)
-    chore = Chore.objects.filter(begin_time__isnull=True)
-    chore_set = ChoreSerializer(many=True, read_only=True, instance=chore)
+    customevent_set = CustomEventCalendar(many=True, read_only=True)
+    booking_set = BookingCalendar(many=True, read_only=True)
+    chore_set = serializers.SerializerMethodField('get_chores')
+
+    def get_chores(self, house):
+        qs = Chore.objects.filter(user__isnull=False, house=house)
+        serializer = ChoreCalendar(instance=qs, many=True)
+        return serializer.data
 
     class Meta:
         model = House
