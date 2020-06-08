@@ -1,25 +1,16 @@
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import GenericViewSet
 from api.bookings.models import Booking
 from api.bookings.serializers import BookingSerializer
 from rest_framework.serializers import ValidationError
 from api.bookings.filters import BookingFilter
+from rest_framework.mixins import CreateModelMixin
 
 
-class BookingList(ModelViewSet):
+class BookingList(CreateModelMixin, GenericViewSet):
 
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
     filter_backends = [BookingFilter, ]
-
-    def list(self, request, *args, **kwargs):
-        """
-        Retrieve existing bookings
-        :param request:
-        :param args:
-        :param kwargs:
-        :return:
-        """
-        return super().list(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
         """

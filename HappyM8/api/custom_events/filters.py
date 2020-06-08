@@ -30,4 +30,6 @@ class LandlordFilter(BaseFilterBackend):
         :return:
         """
         if request.user.is_admin:
-            return queryset.filter(notify_owner=True)
+            queryset_from = queryset.filter(from_owner=True)
+            queryset_to = queryset.filter(notify_owner=True)
+            return queryset_from | queryset_to

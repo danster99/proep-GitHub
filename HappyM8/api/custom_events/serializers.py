@@ -8,7 +8,8 @@ class CustomEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomEvent
         fields = ('user', 'name', 'description',
-                  'begin_time', 'end_time', 'house', 'notify_owner')
+                  'begin_time', 'end_time', 'house',
+                  'notify_owner', 'from_owner')
 
 
 class CustomEventCalendar(serializers.ModelSerializer):
@@ -18,4 +19,4 @@ class CustomEventCalendar(serializers.ModelSerializer):
     class Meta:
         model = CustomEvent
         fields = ('user', 'name', 'description',
-                  'begin_time', 'end_time', 'house', 'notify_owner')
+                  'begin_time', 'end_time', 'from_owner')

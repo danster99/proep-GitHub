@@ -32,5 +32,11 @@ class CustomEventList(ModelViewSet):
         return super().create(request, *args, **kwargs)
 
     def perform_create(self, serializer):
-        return serializer.save(user=self.request.user,
-                               house=self.request.user.tenant.house)
+        if self.request.user.is_admin:
+            return serializer.save(user=self.request.user,
+                               house=self.request.user.tenant.house,
+                                   from_admin=True, notify_owner=False)
+        else:
+            return serializer.save(user=self.request.user,
+                               house=self.request.user.tenant.house,
+                                   from_admin=False)

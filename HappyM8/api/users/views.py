@@ -56,3 +56,9 @@ class TenantList(GenericViewSet, CreateModelMixin):
         serializer.is_valid(raise_exception=True)
         serializer.save(user=self.request.user, status=2)
         return Response(serializer.data)
+
+    @action(detail=False, url_path='status', methods=['get'])
+    def get_status(self, request, *args, **kwargs):
+        tenant = Tenant.objects.get(user=request.user)
+        serializer = TenantUserSerializer(tenant)
+        return Response(serializer.data)
