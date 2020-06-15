@@ -41,7 +41,7 @@ class CustomEventList(ModelViewSet):
         if self.request.user.is_admin:
             return serializer.save(user=self.request.user,
                                house=self.request.user.tenant.house,
-                                   from_admin=True, notify_owner=False)
+                                   from_owner=True, notify_owner=False)
         else:
             return serializer.save(user=self.request.user,
-                                   from_admin=False)
+                                   from_owner=False)
