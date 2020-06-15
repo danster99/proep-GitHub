@@ -38,7 +38,7 @@ class CustomEventList(ModelViewSet):
         :param serializer:
         :return:
         """
-        if self.request.user.is_admin:
+        if not self.request.user.is_admin:
             return serializer.save(user=self.request.user,
                                house=self.request.user.tenant.house,
                                    from_owner=True, notify_owner=False)
