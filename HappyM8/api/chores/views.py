@@ -1,6 +1,4 @@
-
 from rest_framework.viewsets import ModelViewSet
-
 from api.chores.models import Chore
 from api.chores.serializers import ChoreSerializer, NewChoreSerializer
 from api.chores.filters import ChoreFilter
@@ -14,8 +12,7 @@ class ChoreList(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """
-        Retrieve existing chores with user and assigned time.
-        ex: ?email='some-client@mail.com'
+        Retrieves a list of chores
         :param request:
         :param args:
         :param kwargs:
@@ -25,7 +22,7 @@ class ChoreList(ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         """
-        Add user as well as begin and end time for an existing chore
+        Add begin and end time for an existing chore
         :param request:
         :param args:
         :param kwargs:
@@ -34,6 +31,12 @@ class ChoreList(ModelViewSet):
         return super().update(request, *args, **kwargs)
 
     def perform_update(self, serializer):
+        """
+        automated add of the currently logged in user as assigned tenant to
+        perform a chore
+        :param serializer:
+        :return:
+        """
         return serializer.save(user=self.request.user)
 
 
@@ -44,7 +47,7 @@ class NewChoreList(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """
-        get chores with name and description
+        Retrieves lisf of chores with name and description
         :param request:
         :param args:
         :param kwargs:
@@ -63,6 +66,12 @@ class NewChoreList(ModelViewSet):
         return super().create(request, *args, **kwargs)
 
     def perform_create(self, serializer):
+        """
+        Altered creation of a chore to add the currently logged in user as
+        reference to the house a chore belongs to
+        :param serializer:
+        :return:
+        """
         user = self.request.user
         house = user.tenant.house
         return serializer.save(house=house)

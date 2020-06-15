@@ -5,12 +5,18 @@ from api.users.models import Tenant
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """
+    used for landlords
+    """
     class Meta:
         model = User
         fields = ('id', 'first_name', 'last_name')
 
 
 class UserRegisterSerializer(RegisterSerializer):
+    """
+    used for additional fields to the user register
+    """
     first_name = serializers.CharField()
     last_name = serializers.CharField()
     birth_date = serializers.CharField()
@@ -49,7 +55,9 @@ class TenantSerializer(serializers.ModelSerializer):
 
 
 class TenantUserSerializer(serializers.ModelSerializer):
-
+    """
+    used for code verification and status change
+    """
     code = serializers.ReadOnlyField()
 
     class Meta:

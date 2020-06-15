@@ -32,6 +32,12 @@ class TenantList(GenericViewSet, CreateModelMixin):
     serializer_class = TenantSerializer
 
     def perform_create(self, serializer):
+        """
+        check the number of tenants compared to the max number of tenants
+        in a house when adding a new tenant
+        :param serializer:
+        :return:
+        """
         house = serializer.validated_data.get('house')
         current_tenants = Tenant.objects.filter(house=house, status=2)
         if house.max_nr_tenants > current_tenants.count():
@@ -51,6 +57,14 @@ class TenantList(GenericViewSet, CreateModelMixin):
 
     @action(detail=False, url_path='update/status', methods=['put'])
     def update_tenant_status(self, request, *args, **kwargs):
+        """
+        updates the status and assigns a user to a tenant who provides the code
+        sent by email
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
         tenant = Tenant.objects.get(code=request.data.get('code'), status=1)
         serializer = TenantUserSerializer(tenant, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
@@ -59,6 +73,13 @@ class TenantList(GenericViewSet, CreateModelMixin):
 
     @action(detail=False, url_path='status', methods=['get'])
     def get_status(self, request, *args, **kwargs):
+        """
+        return the data of the tenant to check again the status
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
         tenant = Tenant.objects.get(user=request.user)
         serializer = TenantUserSerializer(tenant)
         return Response(serializer.data)

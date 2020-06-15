@@ -4,7 +4,6 @@ from api.notifications.serializers import NotificationSerializer
 from api.notifications.filters import NotificationFilter
 
 
-# Create your views here.
 class NotificationList(ModelViewSet):
 
     queryset = Notification.objects.all()
@@ -13,7 +12,7 @@ class NotificationList(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """
-        get chores with name and description
+        Retrieve a list of notifications with name and description
         :param request:
         :param args:
         :param kwargs:
@@ -23,7 +22,7 @@ class NotificationList(ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """
-        create a new chore
+        create a new notification
         :param request:
         :param args:
         :param kwargs:
@@ -32,6 +31,12 @@ class NotificationList(ModelViewSet):
         return super().create(request, *args, **kwargs)
 
     def perform_create(self, serializer):
+        """
+        save the detalils of the logged in user as creator and the house they
+        are assigned to as reference
+        :param serializer:
+        :return:
+        """
         user = self.request.user
         house = user.tenant.house
         return serializer.save(house=house, user=user)

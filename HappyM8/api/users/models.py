@@ -15,14 +15,6 @@ class User(AbstractBaseUser):
     1. admin - can create a house
     2.tenant - can access facilities, bookings and chores of an assigned house
     3."basic" user - can be assigned to a house
-
-    A user has three types of status:
-    1. pending - the user has not yet created an account to be assigned to a house
-    2.assigned - a user is part of a house
-    3.unassigned - a user who is not yet part of any house
-
-    when a user creates an account, their status is unassigned by default unless they've been
-    added by an owner. In this case, the status is pending/
     """
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -35,6 +27,16 @@ class User(AbstractBaseUser):
 
 
 class Tenant(models.Model):
+    """
+    A tenant has three types of status:
+    1. pending - the tenant was created by the landlord but hasn't scanned
+     the code to confirm having an account to be linked to
+    2.assigned - a tenant is part of a house
+    3.unassigned - a user who is not part of any house
+
+    when a tenant is added to a house, the default status is pending, as a code
+    is send immediately via email
+    """
 
     status_choices = [
         (STATUS_PENDING, 'pending'),

@@ -12,8 +12,7 @@ class CustomEventList(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """
-        Retrieve existing clients. It is possible to filter clients by email.
-        ex: ?email='some-client@mail.com'
+        Retrieve list of custom events
         :param request:
         :param args:
         :param kwargs:
@@ -32,6 +31,13 @@ class CustomEventList(ModelViewSet):
         return super().create(request, *args, **kwargs)
 
     def perform_create(self, serializer):
+        """
+        alter creation of custom event to difference bewteen a tenant and a
+        landlord creating the event
+        also stores the house the event belongs to
+        :param serializer:
+        :return:
+        """
         if self.request.user.is_admin:
             return serializer.save(user=self.request.user,
                                house=self.request.user.tenant.house,

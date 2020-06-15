@@ -3,7 +3,8 @@ from rest_framework.filters import BaseFilterBackend
 
 class NotificationFilter(BaseFilterBackend):
     """
-    filter that allows a user to only see the house created by them
+    filter that allows a user to only see the notifications created by them.
+    this filter is not used by landlords.
     """
     def filter_queryset(self, request, queryset, view):
         """

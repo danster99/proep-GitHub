@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from api.users.serializers import UserSerializer
-
 from api.bookings.models import Booking
 
 

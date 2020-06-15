@@ -24,7 +24,17 @@ class BookingList(CreateModelMixin, GenericViewSet):
 
     def perform_create(self, serializer):
         """
-        Checks if the item is available
+        performs the creation of a booking with preexisting conditions
+        Checks if:
+            One of the times provided is incorrect:
+                Start time interferes with another event
+                End time interferes with another event
+            Both times provided are incorrect:
+                Event is in the exact same time as another event
+                For an event that starts after an existing event and ends before it
+                For an event which starts before an existing one and ends after it
+        adds the house of the tenant who created the task (who is currently logged in)
+        adds as creator the currently logged in user
         :param serializer:
         :return:
         """

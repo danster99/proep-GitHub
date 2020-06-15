@@ -1,5 +1,4 @@
 from rest_framework.viewsets import ModelViewSet
-
 from api.utilities.models import Utility
 from api.utilities.serializers import UtilitySerializer
 from api.utilities.filters import UtilityFilter
@@ -13,8 +12,7 @@ class UtilityList(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """
-        Retrieve existing clients. It is possible to filter clients by email.
-        ex: ?email='some-client@mail.com'
+        Retrieve a list of existing utilities
         :param request:
         :param args:
         :param kwargs:

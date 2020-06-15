@@ -6,7 +6,7 @@ from rest_framework.viewsets import GenericViewSet
 from api.houses.models import House, Room
 from api.houses.serializers import HouseSerializer, RoomSerializer, CalendarSerializer
 from rest_framework import permissions
-from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin
+from rest_framework.mixins import CreateModelMixin
 from api.houses.filters import HouseFilter
 from rest_framework.viewsets import ModelViewSet
 
@@ -43,7 +43,7 @@ class HouseList(ModelViewSet):
     @action(detail=False, methods=['get'], url_path='user')
     def get_house_for_user(self, request):
         """
-        get user by email
+        return the house the currently logged in user is a tenant of
         :param request:
         :return:
         """
@@ -54,6 +54,11 @@ class HouseList(ModelViewSet):
         return Response(serializer.data)
 
     def perform_create(self, serializer):
+        """
+        overrride to save the logged in user as the owner of the house
+        :param serializer:
+        :return:
+        """
         serializer.save(owner=self.request.user)
 
 
