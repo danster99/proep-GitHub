@@ -38,5 +38,4 @@ class CustomEventList(ModelViewSet):
                                    from_admin=True, notify_owner=False)
         else:
             return serializer.save(user=self.request.user,
-                               house=self.request.user.tenant.house,
                                    from_admin=False)
