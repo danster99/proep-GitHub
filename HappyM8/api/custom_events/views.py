@@ -1,14 +1,14 @@
 from rest_framework.viewsets import ModelViewSet
 from api.custom_events.models import CustomEvent
 from api.custom_events.serializers import CustomEventSerializer
-from api.custom_events.filters import CustomFilter, LandlordFilter
+from api.custom_events.filters import CustomFilter
 
 
 class CustomEventList(ModelViewSet):
 
     queryset = CustomEvent.objects.all()
     serializer_class = CustomEventSerializer
-    filter_backends = [CustomFilter, LandlordFilter]
+    filter_backends = [CustomFilter, ]
 
     def list(self, request, *args, **kwargs):
         """
