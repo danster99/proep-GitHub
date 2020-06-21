@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d1ec1f2-57fd-4ce6-b06d-771529e2c354" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/bookings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/bookings/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/bookings/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/bookings/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/bookings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/bookings/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/chores/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/chores/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/chores/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/chores/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/chores/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/chores/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/custom_events/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/custom_events/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/custom_events/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/custom_events/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/custom_events/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/custom_events/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/houses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/houses/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/notifications/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/notifications/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/notifications/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/notifications/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utilities/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utilities/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utilities/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utilities/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../requirements_proep.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements_proep.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
